@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p><span style="color: red">*</span>姓名: <input type="text" id="uname" name='uname' onblur="cname()"><span id="checkName"></span></p>
+    <p><span style="color: red">*</span>密码: <input type="password" id="upwd" name="upwd" onfocus="pwdTip()" onblur="pwdCheck()"><span id="checkPwd"></span></p>
+    <p><span style="color: red">*</span>确认密码: <input type="password" id="cpwd" name="cpwd" onblur="cpwdTip()"><span id="pwdRepeat"></span></p>    
+    <p>个人头像: <input type="file" id="avatar"></p>
+    <p><span style="color: red">*</span>邮箱: <input type="email" id="email" name="email"></p>
+    <p><span style="color: red">*</span>性别: 
+        <select id="gender">
+            <option value="1">男</option>
+            <option value="0">女</option>
+            <option value="2">保密</option>
+        </select>
+    </p>
+    <p>生日: <input type="date" id="birthday" name="birthday">
+    </p>
+    <p><h4>个人介绍:</h4><textarea name="motto" id="motto" cols="30" rows="10"></textarea></p>
+    <button onclick="register()">提交</button>
+    <script src="common.js"></script>
+    <script>
+    var flag = true;
+    function pwdTip(){
+        $('checkPwd').innerHTML = '请输入6~12位的字符';
+    }
+    function cpwdTip(){
+        if($('upwd').value == $('cpwd').value){
+            flag = true;
+        $('pwdRepeat').innerHTML = '通过';
+        $('pwdRepeat').style.color = 'green';
+        }
+        else{
+            $('pwdRepeat').innerHTML = '两次密码不一致';
+            flag = false;
+        }
+    }
+    function pwdCheck(){
+        var upwd = $('upwd').value;
+        console.log(upwd.length);
+        if(upwd.length > 6 && upwd.length < 12){
+            flag = true;
+            $('checkPwd').innerHTML = '通过';
+            $('checkPwd').style.color = 'green';
+        }else{
+            flag = false;
+            $('checkPwd').innerHTML = '请输入6~12位的字符';
+        }
+    }
+    function cname(){
+        var uname = $('uname').value;
+        if(!uname){
+            flag = false;
+            $('checkName').innerHTML = '用户名不能为空';
+            $('checkName').style.color = 'red';
+        }else{
+            flag = true;
+            var xhr = createXhr();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    var result = xhr.responseText;
+                    if(result == '1'){
+                        flag = false;
+                        $('checkName').innerHTML = '用户名已注册';
+                        $('checkName').style.color = 'red';
+                    }
+                    if(result == '0'){
+                        $('checkName').innerHTML = '通过';
+                        $('checkName').style.color = 'green';                        
+                    }
+                }
+            }
+            console.log(uname);
+            xhr.open('get','user/checkName?uname='+uname,true);
+            xhr.send(null);
+        }
+    }
+    function register(){
+        if(flag){
+            var xhr = createXhr();
+            xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var result = xhr.responseText;
+                alert(result);
+            }
+            }
+            xhr.open('post','/user/register',true);
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            var uname = $('uname').value;
+            var upwd = $('upwd').value;
+            var avatar = $('avatar').value;
+            var email = $('email').value;
+            var gender = $('gender').value;
+            var birthday = $('birthday').value;
+            var motto = $('motto').value;
+            var formdata = 'uname='+uname+'&upwd='+upwd+'&avatar='+avatar+'&email='+email+'&gender='+gender+'&birthday='+birthday+'&motto='+motto;
+            xhr.send(formdata);
+        }
+    }
+    </script>
+</body>
+</html>
