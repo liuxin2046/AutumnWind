@@ -174,7 +174,64 @@
     height: 350px;
     overflow: hidden;
     margin: 0 auto;
+    position: relative;
     /* border: 1px solid lightcoral; */
+}
+.container{
+    width: 4880px;
+    height: 300px;
+    position: absolute;
+}
+.container::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.container>div{
+    float: left;
+    width: 1220px;
+    height: 300px;
+}
+.pre{
+    position: absolute;
+    width: 0px;
+    height: 108px;
+    top:350px;
+    left: 0px;
+    overflow: hidden;
+    background-color: #eee;
+    font-size: 70px;
+    transition: all .5s linear;
+    cursor: pointer;
+}
+.next{
+    position: absolute;
+    width: 0px;
+    height: 108px;
+    overflow: hidden;
+    top:350px;
+    right: 0px;
+    background-color: #eee;
+    font-size: 70px;
+    transition: all .5s linear;
+    cursor: pointer;    
+}
+.imgs .num{
+    position: absolute;
+    width: 300px !important;
+    text-align:center;
+    left: 550px;
+    bottom: 30px;
+}
+.imgs .num>li{
+    display: inline-block;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50%;
+    background-color: #E1E1E1;
+}
+.num_active{
+    background-color: #AFAFAF !important;
 }
 .newDisk{
     width: 100%;
@@ -501,4 +558,117 @@
 }
 .footer_copyright p:first-child~p{
     margin-top: 15px;
+}
+.modal{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    overflow: hidden;
+    background:rgba(0, 0, 0, .2);
+}
+.modal-content{
+    width: 562px;
+    height: 385px;
+    background-color: white;
+    margin: 30px auto;
+}
+.modal-content .login-header{
+    position: relative;
+    width: 100%;
+}
+.login-header ul{
+    list-style: none;
+    width: 100%;
+    height: 57px;
+    border-bottom: 1px solid #F2F2F2;
+}
+.login-header>a{
+    text-decoration: none;
+    display: block;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: black;
+    font-size: 25px;
+}
+.login-header>a:hover{
+    color: #31C27C;
+}
+.login-header ul li{
+    float: left;
+    width: 50%;
+    line-height: 57px;
+    text-align: center;
+}
+.login-header ul li a{
+    text-decoration: none;
+    color: #000000;
+}
+.login-header ul li a:hover{
+    color: #31C27C;
+}
+.login-body{
+    width: 270px;
+    margin: 20px auto;
+    text-align: center;
+}
+.login-body p{
+    margin:20px 0 20px;
+}
+.login-body>p>a{
+    text-decoration: none;
+    color: #3481CF;
+}
+.login-body p:first-child{
+    font-size: 20px;
+    color: #333;
+}
+.login-body input:not(last-child){
+    width: 270px;
+    height: 40px;
+    border: 1px solid #D9D9D9;
+    margin-top: 15px;
+    padding: 10px;
+}
+.login-body input:last-child{
+    border-width: 0px;
+    font-size: 18px;
+    line-height: 25px;
+    color: white;
+}
+.login-body .mySubmit{
+    background-color: #86CE2F;
+}
+.login-footer {
+    font-size: 13px;
+}
+
+.login-footer a:nth-child(3){
+    margin-left: 180px;
+}
+.login-footer a{
+    padding: 0 12px;
+    text-decoration: none;
+    color: #9A9A9A;
+}
+.login-footer{
+    padding-left: 10px;
+    position: relative;
+}
+.login-footer>input{
+    width: 17px;
+    height: 17px;
+    border: 0px;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+}
+.login-footer span:nth-child(2){
+    margin-left: 25px;
 }

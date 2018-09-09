@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CORS</title>
+    <script src="./common.js"></script>
+</head>
+<body>
+    <script>
+        var xmlHttp = createXhr();
+            xmlHttp.onreadystatechange = function(){
+                if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+                    //返回的json文件，所以要处理
+                    var res = xmlHttp.responText;
+                    console.log(res);
+                }
+            }
+            xmlHttp.open('get','https://api.douban.com/v2/movie/in_theaters',true);
+            xmlHttp.setRequestHeader( 'Access-Control-Allow-Origin','*');
+            xmlHttp.send(null);
+        
+        </script>
+</body>
+</html>
