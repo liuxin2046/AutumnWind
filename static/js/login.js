@@ -18,9 +18,9 @@
                     setTimeout(close,2000);
                 }
                 //对返回的数据进行解析，渲染到页面上
-                var avatar = res[0].pic;
+                var avatar = './'+res[0].pic; // ./images/leizi.jpg
                 console.log(avatar);
                 //把图片渲染到登录栏中
-                
+                $('.login').addClass('online').children(':last').css({'display':'block'}).attr({'src':avatar});
             });
 });

@@ -672,3 +672,18 @@
 .login-footer span:nth-child(2){
     margin-left: 25px;
 }
+/* 用户头像设置 */
+.login>img{
+    width: 60px;
+    height:60px;
+    position: absolute;
+    border-radius: 50%;
+    top: 15px;
+    left: 10px;
+    border:1px solid #d8d8d8;
+    display: none;
+    z-index: 999;
+}
+.online{
+    position: relative;
+}
