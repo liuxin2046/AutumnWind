@@ -15,12 +15,13 @@
                 
                 //如果用户名正确,把登录框关闭
                 if(res.length > 0){
-                    setTimeout(close,2000);
+                    setTimeout(close,1000);
                 }
                 //对返回的数据进行解析，渲染到页面上
                 var avatar = './'+res[0].pic; // ./images/leizi.jpg
                 console.log(avatar);
                 //把图片渲染到登录栏中
-                $('.login').addClass('online').children(':last').css({'display':'block'}).attr({'src':avatar});
+                $('.login').addClass('online').children('img.link_user_info').css({'display':'block'}).attr({'src':avatar});
+                $('.user_info>div:first>a>img').attr('src',avatar);
             });
 });

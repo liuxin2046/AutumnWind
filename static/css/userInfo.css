@@ -1,0 +1,263 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.user_bg{
+    width: 100%;
+    height: 380px;
+    position: relative;
+    background-color: lightblue;
+    background-image: url(../images/bg_profile.jpg);
+}
+.user_bg .profile_avatar{
+    width: 200px;
+    height: 260px;
+    /* background-color: lightgreen; */
+    top: 60px;
+    left: 50%;
+    position: absolute;
+    margin-left: -100px;
+}
+.profile_avatar .user_avatar_lg{
+    width: 110px;
+    height: 110px;
+    margin: 0px auto;
+}
+.profile_avatar>h1{
+    color: white;
+    text-align: center;
+}
+.profile_avatar>p{
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+.profile_avatar>p>span{
+    display: inline-block;
+    /* background-color: lightpink; */
+    padding: 10px;
+    margin-top: 5px;
+}
+.profile_avatar .user_avatar_lg>img{
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+}
+.user_bg .profile_nav{
+    width: 100%;
+    height: 60px;
+    /* background-color: lightcoral; */
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+.profile_nav>ul{
+    list-style: none;
+    /* background-color: orange; */
+    padding-left: 65px;
+}
+.profile_nav>ul::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.profile_nav>ul>li{
+    float: left;
+    margin-left: 10px;
+}
+.profile_nav>ul>li:last-child{
+    float: right;
+    margin-right: 50px;
+}
+.profile_nav>ul>li>a{
+    display: inline-block;
+    padding: 0px 10px;
+    height: 60px;
+    color: white;
+    text-decoration: none;
+    line-height: 60px;/*设置文本间的行高*/
+    /* background-color: lightgray; */
+}
+.profile_nav>ul>li>a:hover{
+    color: #31C27C;
+}
+.profile{
+    width: 100%;
+    height: 500px;
+}
+.profile .mod_tab{
+    width: 1200px;
+    height: 60px;
+    margin: 0 auto;
+    /* background-color: lightblue; */
+}
+.profile .mod_tab>ul{
+    list-style: none;
+}
+.profile .mod_tab>ul::after{
+    content:'';
+    display: block;
+    clear: both;
+}
+.profile .mod_tab>ul>li{
+    float: left;
+    margin-right: 30px;
+}
+.profile .mod_tab>ul>li>a{
+    display: inline-block;
+    padding: 0px 10px;
+    height: 60px;
+    color: black;
+    text-decoration: none;
+    line-height: 60px;/*设置文本间的行高*/
+}
+.profile .mod_tab>ul>li>a:hover{
+    color: #31C27C;
+}
+.profile .mod_songlist_toolbar{
+    width: 1200px;
+    margin: 30px auto;
+    /* background: lightcoral; */
+}
+.profile .mod_songlist_toolbar>ul{
+    list-style: none;
+}
+.profile .mod_songlist_toolbar>ul::after{
+    content:'';
+    display: block;
+    clear: both;
+}
+.profile .mod_songlist_toolbar>ul>li{
+    float: left;
+    margin-right: 5px;
+}
+.profile .mod_songlist_toolbar>ul>li>a{
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    height: 40px;
+    text-decoration: none;
+    line-height: 40px;
+    color: black;
+    border: 1px solid #C9C9C9;
+}
+.profile .mod_songlist_toolbar>ul>li>a:hover{
+    background-color: #d8d8d8;
+}
+.profile .mod_songlist_toolbar>ul>li>a>i{
+    color: #999999;
+}
+.profile .mod_songlist{
+    width: 1200px;
+    margin: 0 auto;
+}
+.profile .mod_songlist>ul{
+    list-style: none;
+    background-color: #F7F7F7;
+}
+.profile .mod_songlist>ul::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.profile .mod_songlist>ul>li{
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    color: #999999;
+}
+.profile .mod_songlist>ul>li:first-child{
+    width: 55%;
+    padding-left: 15px;
+    /* background-color: #31C27C; */
+}
+.profile .mod_songlist>ul>li:not(:first-child){
+    width: 15%;
+    text-align: center;
+}
+.profile .mod_songlist>ul:not(:first-child){
+    font-size: 15px;
+    background-color: white;
+    /*关键在这里*/
+
+    /* background: lightblue url(../images/icon_list_menu.png) no-repeat 0px 0px; */
+}
+.profile .mod_songlist>ul:not(:first-child):hover>li:first-child>ul{
+    display: block;
+}
+.profile .mod_songlist>ul:not(:first-child):hover>li:last-child>a+a{
+    display: block;
+}
+.profile .mod_songlist>ul:not(:first-child):hover>li:last-child>a.song_time{
+    display: none;
+}
+.profile .mod_songlist>ul:not(:first-child)>li>a{
+    color: black;
+    text-decoration: none;
+}
+.profile .mod_songlist>ul:not(:first-child)>li>a:hover{
+    color: #31C27C;
+}
+.profile .mod_songlist>ul:not(:first-child)>li>ul{
+    list-style: none;
+    width: 175px;
+    float: right;
+    margin-top: 5px;
+    /*鼠标没有移动歌手列表的时候*/
+    display: none;
+    /* background-color: lightcoral; */
+}
+/* .profile .mod_songlist>ul:not(:first-child)>li>ul::after{
+    content: '';
+    display: block;
+    clear: both;
+} */
+.profile .mod_songlist>ul:not(:first-child)>li>ul>li{
+    /* float: left; */
+    display: inline-block;
+}
+.profile .mod_songlist>ul:not(:first-child)>li>ul>li>a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    /* background-color: lightcyan; */
+}
+.list_menu_play{
+    background: white url(../images/icon_list_menu.png) 0px 0px;
+}
+.list_menu_play:hover{
+    background: white url(../images/icon_list_menu.png) -40px 0px;
+}
+.list_menu_add{
+    background: white url(../images/icon_list_menu.png) 0px -80px;
+}
+.list_menu_add:hover{
+    background: white url(../images/icon_list_menu.png) -40px -80px;
+}
+.list_menu_download{
+    background: white url(../images/icon_list_menu.png) 0px -120px;
+}
+.list_menu_download:hover{
+    background: white url(../images/icon_list_menu.png) -40px -120px;
+}
+.list_menu_share{
+    background: white url(../images/icon_list_menu.png) 0px -40px;
+}
+.list_menu_share:hover{
+    background: white url(../images/icon_list_menu.png) -40px -40px;
+}
+.list_menu_delete{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 70px;
+    background: white url(../images/icon_list_menu.png) 0px -160px;
+}
+.list_menu_delete:hover{
+    background: white url(../images/icon_list_menu.png) -40px -160px;
+}
+.list_menu_delete{
+    display: none;
+}
