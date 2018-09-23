@@ -6,7 +6,7 @@ var router = express.Router();
     var object = req.body;
         console.log(object);
         object.uid = null;
-        pool.query(`insert into aw_user value set ?`);
+        pool.query(`insert into aw_user_list value set ?`);
     });
     //登录路由
     router.post('/login',(req,res)=>{
@@ -15,7 +15,7 @@ var router = express.Router();
     var account = object.account;
     var password = object.password;
     //查询结果
-        pool.query(`select * from aw_user where account = ? and upwd = ?`,[account,password],(err,result)=>{
+        pool.query(`select * from aw_user_list where account = ? and upwd = ?`,[account,password],(err,result)=>{
             if(err) throw err;
             if(result.length > 0){
                 console.log(result);

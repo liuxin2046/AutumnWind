@@ -188,6 +188,7 @@
     float: left;
     height: 38px;
     width: 124px;
+    padding-top: 7px !important;
     margin-left: 80px;
     border: 1px solid #C9C9C9;
     border-radius: 3px;

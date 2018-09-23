@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/singlespage.css">
+    <title>singerspage</title>
+</head>
+<body>
+    <div id="singers">
+    <div class="singer_data">
+        <div class="singer_avatar">
+            <img :src="res[0].avatar" alt="">
+        </div>
+        <div class="singer_info">
+            <span class="singer_name" v-text='res[0].sname'></span><span class="singer_status">已入驻</span>
+            <div class="singer_intro">
+                <div class="singer_intro_txt">
+                    <p v-text='res[0].intro'>
+                </p>
+                </div>
+                <a href="#">[举报]</a>
+                <a href="#" @click='showMore()'>[更多]</a>
+                <!-- 显示详细的歌手信息 -->
+                <div class="popup_data_detail" v-show='show'>
+                    <div class="popup_data_detail_cont">
+                    <h3>歌手简介</h3>
+                    <p v-text='res[0].intro'>
+                </p>
+                </div>
+                </div>
+            </div>
+            <ul class="singer_works">
+                    <li><a href="#">单曲&nbsp;<b v-text='single'></b></a></li>
+                    <li><a href="#">专辑&nbsp;<b v-text='album'></b></a></li>
+                    <li><a href="#">MV&nbsp;<b v-text='mv'></b></a></li>
+                </ul>
+                <div class="data_action">
+                        <a href="#" class="play_hot"><i class="play_sign"></i>播放歌手热门歌曲</a><a href="#" class="singer_follow"><i class="follow_sign"></i>已关注298.6万</a>
+                    </div>
+        </div>
+        
+    </div>
+    <div class="singer_songlist">
+        <div class="part_hd"><h2>热门歌曲</h2><a href="#">全部></a></div>
+        <div class="sb_overview">
+                <ul class="songlist_header">
+                    <li>歌曲</li>
+                    <li>专辑</li>
+                    <li>时长</li>
+                </ul>
+                <ul class="songlist_list">
+                    <!-- <li v-for='(item,i) of res'><div class="list_item"><div class="song_number">{{i+1}}</div><div class="song_name" v-text='res[i].sname'><a href="#" v-text='res[i].album'></a></div><div class="song_album"><a href="#">嗯</a></div><div class="song_time"><span>4:15</span></div></div></li> -->
+                    <li v-for='(item,i) of res'><div class="list_item"><div class="song_number">{{i+1}}</div><div class="song_name"><a href="#" v-text='res[i].song_name'>作曲家</a><a href="#" class="mv_sign" v-if='res[i].vedio_href !== null'></a></div><div class="song_album"><a href="#" v-text='res[i].album'>作曲家</a></div><div class="song_time"><span v-text='res[i].stime'>4:15</span></div></div></li>
+                    <!-- <li><div class="list_item"><div class="song_number">3</div><div class="song_name"><a href="#">李白</a></div><div class="song_album"><a href="#">模特</a></div><div class="song_time"><span>4:15</span></div></div></li>
+                    <li><div class="list_item"><div class="song_number">3</div><div class="song_name"><a href="#">老街</a></div><div class="song_album"><a href="#">小黄</a></div><div class="song_time"><span>4:15</span></div></div></li>                 -->
+                </ul>
+            </div>
+    </div>
+</div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/singers_page.js"></script>
+</body>
+</html>
+</html>

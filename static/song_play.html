@@ -25,7 +25,6 @@
         </div>
         <div class="sb_overview">
             <ul class="songlist_header">
-                <li><input type="checkbox" name="" id=""></li>
                 <li>歌曲</li>
                 <li>歌手</li>
                 <li>时长</li>
@@ -49,7 +48,38 @@
             </div>
         </div>
     </div>
-    <div class="player_ft">
+    <audio id="play1">
+        <source src="./songs/song1.mp3">
+    </audio>
+    <audio id="play2">
+        <source src="./songs/song2.mp3">
+    </audio>
+    <audio id="play3">
+        <source src="./songs/song3.mp3">
+    </audio>
+    <div class="play_ft">
+        <div class="play_ft_bar">
+            <div class="play_ft_bar_left"><a href="#" class="m_pre"><i class="fas fa-step-backward"></i></a><a href="#" class="m_play"><i class="fas fa-play"></i></a><a href="#" class="m_next"><i class="fas fa-step-forward"></i></a></div>
+            <div class="play_ft_bar_middle">
+                <div class="song_name"><a href="#">爱如星火</a>-<a href="#">冷漠</a>/<a href="#">杨小曼</a></div>
+                <div class="m_progress_bar">
+                    <div class="m_progress"></div>
+                    <span></span>
+                </div>
+            </div>
+            <div class="play_ft_bar_right">
+                <ul>
+                    <li><a href="#" class="m_loop"></a></li>
+                    <li><a href="#" class="m_like"></a></li>
+                    <li><a href="#" class="m_download"></a></li>
+                    <li><a href="#" class="m_comment"></a></li>
+                    <li><a href="#" class="m_change"><span class="cleanMode">纯净</span><span class="switch">OFF</span></a></li>
+                    <li><a href="#" class="m_voice"><i class="fas fa-volume-up"></i><span class="vlength"></span></a></li>
+                </ul>
+            </div>
+        </div>
     </div>
+    <script src="./js/jquery-3.2.1.js"></script>
+    <script src="./js/song_play.js"></script>
 </body>
 </html>
