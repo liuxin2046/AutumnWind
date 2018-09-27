@@ -1,4 +1,7 @@
-
+if(location.search.indexOf('singerName=')!=-1){
+    var Name = decodeURI(location.search.split('=')[1]);
+    console.log(Name);
+}
 new Vue({
     el:'#singers',
     data:{
@@ -43,7 +46,7 @@ new Vue({
             var res = await axios.get('http://localhost:3000/singer/info',{
                 params:{
                     /*这个参数应该是搜索栏中传过来的*/
-                    singerName:'赵雷'
+                    singerName:Name
                 }
             });
             self.res = res.data;

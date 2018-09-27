@@ -16,12 +16,24 @@
                 //如果用户名正确,把登录框关闭
                 if(res.length > 0){
                     setTimeout(close,1000);
-                }
+                }               
                 //对返回的数据进行解析，渲染到页面上
                 var avatar = './'+res[0].avatar; // ./images/leizi.jpg
-                console.log(avatar);
-                //把图片渲染到登录栏中
+                var nickname = res[0].nickname;
+                // console.log(avatar);
+                //登录的状态使用cookies来保存
+                document.cookie=`account=${res[0].account}`;
+                console.log('password='+res[0].upwd);
+                document.cookie=`password=${res[0].upwd}`;
+                //使用localStorage存储
+                var storage = window.localStorage;
+                    storage.setItem('account',account);
+                    storage.setItem('password',password);
+                    storage.setItem('nickname',nickname);
+                    storage.setItem('avatar',avatar);
+                //把storage中的图片渲染到登录栏中
                 $('.login').addClass('online').children('img.link_user_info').css({'display':'block'}).attr({'src':avatar});
                 $('.user_info>div:first>a>img').attr('src',avatar);
+                $('.user_data_cont>p>a').text(nickname);
             });
 });

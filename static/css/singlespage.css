@@ -262,3 +262,5 @@ body{
 .songlist_list>li:nth-child(even){
     background-color: #FBFBFD;
 }
+
+/* 设置播放等按钮 */

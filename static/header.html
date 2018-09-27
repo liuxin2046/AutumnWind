@@ -10,14 +10,14 @@
         </ul>
         <div class="aw_top_subnav">
             <ul class="right">
-                <li class="search"><input type="text" class="search_bar"></li>
+                <li class="search"><input type="text" class="search_bar" v-model='keyword' @keyup.13='search()'></li>
                 <li class="login online">
                     <a href="javascript:login()" class="login_btn">登录</a>
                     <img src="" alt="avatar" class="link_user_info">
                     <!-- 显示用户信息 -->
                     <div class="user_info">
                         <div class="user_data">
-                            <a href="#"><img src="./images/leizi.jpg" alt=""></a><div class="user_data_cont"><p><a href="#">绿色旋律</a></p></div>
+                            <a href="http://localhost:3000/userInfo.html"><img src="" alt=""></a><div class="user_data_cont"><p><a href="#" v-text=''></a></p></div>
                         </div>
                         <div class="user_toobar">
                             <div class="user_toobar_item">
