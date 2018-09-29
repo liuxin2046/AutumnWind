@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const user = require('./routers/user');
 const songs = require('./routers/songs');
 var app = express();
-    app.listen(3000,()=>{
+    app.listen(8080,()=>{
         console.log('Server is running');
     });
     app.use(express.static('./static')); //设置静态资源

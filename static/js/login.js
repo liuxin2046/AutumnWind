@@ -7,7 +7,7 @@
             验证账号密码
             */
             ajax({
-                url:'http://localhost:3000/user/login',
+                url:'http://localhost:8080/user/login',
                 type:'post',
                 data:`account=${account}&password=${password}`,
                 dataType:'json'
@@ -23,8 +23,8 @@
                 // console.log(avatar);
                 //登录的状态使用cookies来保存
                 document.cookie=`account=${res[0].account}`;
-                console.log('password='+res[0].upwd);
                 document.cookie=`password=${res[0].upwd}`;
+                document.cookie=`uid=${res[0].uid}`;
                 //使用localStorage存储
                 var storage = window.localStorage;
                     storage.setItem('account',account);

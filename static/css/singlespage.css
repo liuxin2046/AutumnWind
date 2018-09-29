@@ -264,3 +264,48 @@ body{
 }
 
 /* 设置播放等按钮 */
+div.song_name>ul{
+    float: right;
+    list-style: none;
+    margin-top: 6px;
+    margin-right: 5px;
+    /* border: 1px solid lightcoral; */
+    display: none;
+}
+ul.songlist_list>li:hover div.song_name>ul{
+    display: block;
+}
+div.song_name>ul>li{
+    display: inline-block;
+}
+div.song_name>ul>li>a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+
+.list_menu_play{
+    background: transparent url(../images/icon_list_menu.png) 0px 0px;
+}
+.list_menu_play:hover{
+    background: transparent url(../images/icon_list_menu.png) -40px 0px;
+}
+.list_menu_add{
+    background: transparent url(../images/icon_list_menu.png) 0px -80px;
+}
+.list_menu_add:hover{
+    background: transparent url(../images/icon_list_menu.png) -40px -80px;
+}
+.list_menu_download{
+    background: transparent url(../images/icon_list_menu.png) 0px -120px;
+}
+.list_menu_download:hover{
+    background: transparent url(../images/icon_list_menu.png) -40px -120px;
+}
+.list_menu_share{
+    background: transparent url(../images/icon_list_menu.png) 0px -40px;
+}
+.list_menu_share:hover{
+    background: transparent url(../images/icon_list_menu.png) -40px -40px;
+}

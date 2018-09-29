@@ -13,7 +13,7 @@ $(function(){
                 methods:{
                     search(){
                         //跳转到歌手页面
-                        location.href = `http://localhost:3000/singers_page.html?singerName=${this.keyword}`;
+                        location.href = `http://localhost:8080/singers_page.html?singerName=${this.keyword}`;
                         //location.href = `http://localhost:3000/singer/info?singerName=${this.keyword}`;
                     }
                 },

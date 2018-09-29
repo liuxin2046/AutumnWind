@@ -51,31 +51,22 @@
             <li>专辑</li>
             <li>时长</li>
         </ul>
-        <ul>
-                <li><a href="#">男孩(Live)</a><ul>
+        <ul v-for='item of res'>
+                <li><a href="#" v-text='item.song_name'></a><ul>
                     <li><a href="#" class="list_menu_play"></a></li>
                     <li><a href="#" class="list_menu_add"></a></li>
                     <li><a href="#" class="list_menu_download"></a></li>
                     <li><a href="#" class="list_menu_share"></a></li>
                 </ul></li>
-                <li><a href="#">梁博</a></li>
-                <li><a href="#">歌手 第10期</a></li>
-                <li><a href="#" class="song_time">05:11</a><a href="#" class="list_menu_delete"></a></li>
+                <li><a href="#" v-text='item.sname'></a></li>
+                <li><a href="#" v-text='item.album'></a></li>
+                <li><a href="#" class="song_time" v-text='item.stime'></a><a href="#" class="list_menu_delete"></a></li>
             </ul>
-            <ul>
-                    <li><a href="#">北京的冬天</a><ul>
-                        <li><a href="#" class="list_menu_play"></a></li>
-                        <li><a href="#" class="list_menu_add"></a></li>
-                        <li><a href="#" class="list_menu_download"></a></li>
-                        <li><a href="#" class="list_menu_share"></a></li>
-                    </ul></li>
-                    <li><a href="#">赵雷</a></li>
-                    <li><a href="#">吉姆餐厅</a></li>
-                    <li><a href="#" class="song_time">05:11</a><a href="#" class="list_menu_delete"></a></li>
-                </ul>
     </div>
     </div>
     <footer id="footer"></footer>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/base.js"></script>
     <script src="./js/userInfo.js"></script>

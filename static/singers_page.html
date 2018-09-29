@@ -51,14 +51,23 @@
                     <li>时长</li>
                 </ul>
                 <ul class="songlist_list">
-                    <!-- <li v-for='(item,i) of res'><div class="list_item"><div class="song_number">{{i+1}}</div><div class="song_name" v-text='res[i].sname'><a href="#" v-text='res[i].album'></a></div><div class="song_album"><a href="#">嗯</a></div><div class="song_time"><span>4:15</span></div></div></li> -->
-                    <li v-for='(item,i) of res'><div class="list_item"><div class="song_number">{{i+1}}</div><div class="song_name"><a href="#" v-text='res[i].song_name'>作曲家</a><a href="#" class="mv_sign" v-if='res[i].vedio_href !== null'></a></div><div class="song_album"><a href="#" v-text='res[i].album'>作曲家</a></div><div class="song_time"><span v-text='res[i].stime'>4:15</span></div></div></li>
-                    <!-- <li><div class="list_item"><div class="song_number">3</div><div class="song_name"><a href="#">李白</a></div><div class="song_album"><a href="#">模特</a></div><div class="song_time"><span>4:15</span></div></div></li>
-                    <li><div class="list_item"><div class="song_number">3</div><div class="song_name"><a href="#">老街</a></div><div class="song_album"><a href="#">小黄</a></div><div class="song_time"><span>4:15</span></div></div></li>                 -->
+                    <li v-for='(item,i) of res'><div class="list_item"><div class="song_number">{{i+1}}</div>
+                        <div class="song_name">
+                            <a href="#" v-text='res[i].song_name'></a>
+                            <ul>
+                                <li><a href="#" class="list_menu_play"></a></li>
+                                <li><a href="#" class="list_menu_add" @click='add(item.lid)'></a></li>
+                                <li><a href="#" class="list_menu_download"></a></li>
+                                <li><a href="#" class="list_menu_share"></a></li>
+                            </ul>
+                        <a href="#" class="mv_sign" v-if='res[i].vedio_href !== null'></a>
+                    </div>
+                        <div class="song_album"><a href="#" v-text='res[i].album'>作曲家</a></div><div class="song_time"><span v-text='res[i].stime'>4:15</span></div></div></li>
                 </ul>
             </div>
     </div>
 </div>
+    <script src="./js/base.js"></script>
     <script src="./js/vue.js"></script>
     <script src="./js/axios.min.js"></script>
     <script src="./js/singers_page.js"></script>
