@@ -55,8 +55,8 @@
                         <div class="song_name">
                             <a href="#" v-text='res[i].song_name'></a>
                             <ul>
-                                <li><a href="#" class="list_menu_play"></a></li>
-                                <li><a href="#" class="list_menu_add" @click='add(item.lid)'></a></li>
+                                <li><a href="#" class="list_menu_play" @click.prevent='play(item.lid)'></a></li>
+                                <li><a href="#" class="list_menu_add" @click.prevent='add(item.lid)'></a></li>
                                 <li><a href="#" class="list_menu_download"></a></li>
                                 <li><a href="#" class="list_menu_share"></a></li>
                             </ul>

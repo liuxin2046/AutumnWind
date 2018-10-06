@@ -18,13 +18,34 @@ var router = express.Router();
         pool.query(`select * from aw_user_list where account = ? and upwd = ?`,[account,password],(err,result)=>{
             if(err) throw err;
             if(result.length > 0){
-                console.log(result);
+                req.session.uname = result[0].uname;
+                req.session.uid = result[0].uid;
+                console.log(req.session.uname);
                 res.send(result);
             }else{
                 console.log('error');
                 res.send({"msg":"404"});
             }
         })
+    })
+    //检测是否已登录
+    router.get('/islogin',(req,res)=>{
+        if(req.session.uid !== undefined){
+            var uid = req.session.uid;
+            var sql = `select * from aw_user_list where uid = ?`;
+            pool.query(sql,[uid],(err,result)=>{
+                if(err) throw err;
+                else
+                res.send({code:1,msg:result});
+            })
+        }else{
+            res.send({code:0,msg:'null'});
+    }
+    })
+    //注销登录
+    router.get('/signout',(req,res)=>{
+        req.session.destroy(); //销毁session
+        res.send({code:1,msg:'ok'});
     })
     //检查用户名是否存在
     router.get('/checkName',(req,res)=>{

@@ -37,16 +37,16 @@ body{
     padding-top: 7px;
     /* background-color: lightgreen; */
 }
-.song_header .mod_user_login>img{
+.song_header .mod_user_login img{
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    border:1px solid lightcoral;
+    border:1px solid #ddd;
 }
-.song_header .mod_user_login>img~span{
+.song_header .mod_user_login img~span{
     padding: 0 5px;
 }
-.song_header .mod_user_login>img{
+.song_header .mod_user_login img{
     vertical-align: middle;
 }
 .play_bg{
@@ -124,6 +124,69 @@ body{
     text-decoration: none;
     color: #C2C1BE;
 }
+/* .sb_overview>ul:not(:first-child) .stime{
+    background-color: lightcoral;
+} */
+/* 控制播放等按钮的显示 */
+ul.optionbtn{
+    float: right;
+    list-style: none;
+    margin-top: 6px;
+    margin-right: 5px;
+    /* background-color: lightcoral; */
+    display: none;
+}
+.sb_overview>ul:not(:first-child):hover ul.optionbtn{
+    display: block;
+}
+.sb_overview>ul:not(:first-child):hover .stime{
+    display: none;
+}
+.sb_overview>ul:not(:first-child):hover .list_menu_delete{
+    display: block;
+}
+ul.optionbtn>li{
+    display: inline-block;
+}
+ul.optionbtn>li>a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+.list_menu_play{
+    background: transparent url(../images/icon_list_menu.png) 0px 0px;
+}
+.list_menu_play:hover{
+    background: transparent url(../images/icon_list_menu.png) -40px 0px;
+}
+.list_menu_add{
+    background: transparent url(../images/icon_list_menu.png) 0px -80px;
+}
+.list_menu_add:hover{
+    background: transparent url(../images/icon_list_menu.png) -40px -80px;
+}
+.list_menu_share{
+    background: transparent url(../images/icon_list_menu.png) 0px -40px;
+}
+.list_menu_share:hover{
+    background: transparent url(../images/icon_list_menu.png) -40px -40px;
+}
+.list_menu_delete{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    margin-right: 30px;
+    display: none;
+    background: transparent url(../images/icon_list_menu.png) 0px -160px;
+}
+.list_menu_delete:hover{
+    background: transparent url(../images/icon_list_menu.png) -40px -160px;
+}
+/* .list_menu_delete{
+    display: none;
+} */
+
 .song_info{
     width: 340px;
     position: absolute;
@@ -143,6 +206,17 @@ body{
 }
 .song_info .song_content p{
     text-align: center;
+    color: #BEC2C4;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.song_info .song_content>div{
+    width: 170px;
+    height: 200px;
+    font-size: 14px;
+    margin: 10px auto;
+    color: #BEC2C4;
+    overflow-y: hidden;
 }
 /* .player_ft{
     width: 1150px;
@@ -191,6 +265,7 @@ body{
     position: relative;
     /* background-color: lightgreen; */
 }
+
 .play_ft_bar_right{
     width: 32%;
     height: 50px;
@@ -208,6 +283,16 @@ body{
     font-size: 15px;
     /* background-color: lightsalmon; */
 }
+.play_ft_bar_middle .song_time{
+    width: 120px;
+    height: 22px;
+    position: absolute;
+    top: 5px;
+    right: 50px;
+    /* background-color: lightcoral; */
+    color: #C4BEBB;
+    font-size: 15px;
+}
 .play_ft_bar_middle .song_name>a{
     text-decoration: none;
     color: #C4BEBB;
@@ -224,7 +309,7 @@ body{
     height: inherit;
     background-color: lightcoral;
 }
-.m_progress_bar>span{
+.m_progress_bar>span.dot{
     display:block;
     width: 10px;
     height: 10px;

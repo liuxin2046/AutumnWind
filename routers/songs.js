@@ -13,4 +13,5 @@ router.get('/info',(req,res)=>{
         res.send({'msg':'err','code':404});
     })
 })
+
 module.exports = router;

@@ -13,11 +13,11 @@
                 <li class="search"><input type="text" class="search_bar" v-model='keyword' @keyup.13='search()'></li>
                 <li class="login online">
                     <a href="javascript:login()" class="login_btn">登录</a>
-                    <img src="" alt="avatar" class="link_user_info">
+                    <img :src="list[0].avatar" alt="avatar" class="link_user_info" v-bind:style="styleObject">
                     <!-- 显示用户信息 -->
                     <div class="user_info">
                         <div class="user_data">
-                            <a href="http://localhost:8080/userInfo.html"><img src="" alt=""></a><div class="user_data_cont"><p><a href="#" v-text=''></a></p></div>
+                            <a href="http://localhost:8080/userInfo.html"><img :src="list[0].avatar" alt=""></a><div class="user_data_cont"><p><a href="#" v-text='list[0].nickname'></a></p></div>
                         </div>
                         <div class="user_toobar">
                             <div class="user_toobar_item">
@@ -31,7 +31,7 @@
                                     <a href="#" class="open_green">开通</a>
                             </div>
                             <div class="user_toobar_item"><p>评论通知</p></div>
-                            <div class="user_toobar_item"><p>退出QQ登录</p></div>
+                            <div class="user_toobar_item"><a href="#" @click='signout()'>退出QQ登录</a></div>
                         </div>
                     </div>
                 </li>

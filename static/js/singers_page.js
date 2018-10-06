@@ -1,13 +1,9 @@
 if(location.search.indexOf('singerName=')!=-1){
     var Name = decodeURI(location.search.split('=')[1]);
-    console.log(Name);
+    //console.log(Name);
 }
 new Vue({
     el:'#singers',
-    // data:{
-    //     res:[{sname:'',intro:''}],
-    //     show:false
-    // },
     data(){
         return {
         res:[{sname:'',intro:''}],
@@ -20,6 +16,10 @@ new Vue({
                 this.show = true;
             else
                 this.show = false;
+        },
+        play:function(id){
+            //跳转页面到song_play.html
+            location.href=`http://localhost:8080/song_play.html?lid=${id}`;
         },
         add:async function(index){
             console.log('当前歌曲的lid: '+index);
@@ -42,22 +42,7 @@ new Vue({
             }else{
                 console.log('不能重复添加');
             }
-
-
-
         } 
-        // add(index){
-        //     console.log('当前歌曲的lid: '+index);
-        //     console.log('当前用户的uid: '+getCookie('uid'));
-        //     //在这里发送一个ajax请求
-        //     var cinfo = axios.get('http://localhost:8080/user/collectSong',{
-        //         params:{
-        //             lid:index,
-        //             uid:getCookie('uid')
-        //         }
-        //     })
-
-        // }
     },
     computed:{
         single(){

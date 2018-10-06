@@ -9,9 +9,10 @@
     <title>SongPlay</title>
 </head>
 <body>
+    <div id="app_play">
     <div class="song_header">
         <span><a href="#">QQ音乐</a></span>
-        <div class="mod_user_login"><img src="./images/duoduo.jpg" alt="duoduo"><span><a href="#">绿色旋律</a></span><span><a href="#">设置</a></span></div>
+        <div class="mod_user_login"><a href="http://localhost:8080/userInfo.html"><img :src="list.avatar" alt=""></a><span><a href="#" v-text="list.nickname"></a></span><span><a href="#">设置</a></span></div>
     </div>
     <div class="play_bg">
         <div class="mod_songlist_toolbar">
@@ -25,46 +26,49 @@
         </div>
         <div class="sb_overview">
             <ul class="songlist_header">
+                <li><input type="checkbox"></li>
                 <li>歌曲</li>
                 <li>歌手</li>
                 <li>时长</li>
             </ul>
-            <ul>
-                <li><input type="checkbox" name="" id=""><ul>
-                    <li><a href="#" class="list_menu_play"></a></li>
-                    <li><a href="#" class="list_menu_add"></a></li>
-                    <li><a href="#" class="list_menu_download"></a></li>
-                    <li><a href="#" class="list_menu_share"></a></li>
-                </ul></li>
-                <li><a href="#">男孩</a></li>
-                <li><a href="#">梁博</a></li>
-                <li><a href="#" class="song_time">05:11</a><a href="#" class="list_menu_delete"></a></li>
+            <ul v-for="(item, index) in items" :key="index">
+                <li><input type="checkbox" name="" id=""></li>
+                <li><a href="#" v-text="item.song_name"></a><ul class="optionbtn">
+                        <li><a href="#" class="list_menu_play" @click='play(index)'></a></li>
+                        <li><a href="#" class="list_menu_add"></a></li>
+                        <li><a href="#" class="list_menu_share"></a></li>
+                    </ul></li>
+                <li><a href="#" v-text="item.sname"></a></li>
+                <li><a href="#" class="stime" v-text="item.stime"></a><a href="#" class="list_menu_delete"></a></li>
             </ul>
         </div>
         <div class="song_info">
-            <a href="#"><img src="./images/woshigeshou.jpg" alt=""></a>
+            <a href="#"><img :src="items2.cover" alt=""></a>
             <div class="song_content">
-                <p>歌曲名:男孩</p>
+                <p>歌曲名:{{items2.song_name}}</p>
+                <div v-html="items2.lyric"></div>
             </div>
         </div>
     </div>
-    <audio id="play1">
-        <source src="./songs/song1.mp3">
+    
+    <audio ref="audio" class="play1">
+        <source src="">
     </audio>
-    <audio id="play2">
+    <audio class="play2">
         <source src="./songs/song2.mp3">
     </audio>
-    <audio id="play3">
+    <audio class="play3">
         <source src="./songs/song3.mp3">
     </audio>
     <div class="play_ft">
         <div class="play_ft_bar">
             <div class="play_ft_bar_left"><a href="#" class="m_pre"><i class="fas fa-step-backward"></i></a><a href="#" class="m_play"><i class="fas fa-play"></i></a><a href="#" class="m_next"><i class="fas fa-step-forward"></i></a></div>
             <div class="play_ft_bar_middle">
-                <div class="song_name"><a href="#">爱如星火</a>-<a href="#">冷漠</a>/<a href="#">杨小曼</a></div>
+                <div class="song_name"><a href="#" v-text="items2.song_name"></a>-<a href="#" v-text="items2.sname"></a></div>
+                <div class="song_time"><span>00:30</span>/<span v-text="items2.stime"></span></div>
                 <div class="m_progress_bar">
                     <div class="m_progress"></div>
-                    <span></span>
+                    <span class="dot"></span>
                 </div>
             </div>
             <div class="play_ft_bar_right">
@@ -79,7 +83,10 @@
             </div>
         </div>
     </div>
+</div>
     <script src="./js/jquery-3.2.1.js"></script>
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.min.js"></script>
     <script src="./js/song_play.js"></script>
 </body>
 </html>
