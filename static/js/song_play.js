@@ -2,23 +2,30 @@ $(function(){
     var mStatus = false;
     var list = [$(".play1").get(0),$(".play2").get(0),$(".play3").get(0)];
     var index = 0,timer = null;
-    $('.m_play').click(function(){
+    $('.m_play').click(function(e){
+        e.preventDefault();
         if(!mStatus){
             mStatus = true;
+            //切换背景图片
+            $('.m_play').css('backgroundPosition','10px -196px');
+            $('.m_play').css('backgroundRepeat','no-repeat');
             list[index].play();
             progressbar(index);
         }else{
             mStatus = false;
+            $('.m_play').css('backgroundPosition','10px 5px');
             list[index].pause();
             clearInterval(timer);
             timer = null;
         }
         
     });
-    $('.m_pre').click(function(){
+    $('.m_pre').click(function(e){
+        e.preventDefault();
         prev();
     })
-    $('.m_next').click(function(){
+    $('.m_next').click(function(e){
+        e.preventDefault();
         next();
     })
     function prev(){
@@ -63,8 +70,11 @@ $(function(){
             timer = setInterval(function(){
             var currentTime = list[key].currentTime;
             var load = (currentTime/songLength)*470;
-            console.log(load);
+            // console.log(load);
             // var dot = load > 5 ? load - 5:0;
+            var t = changetime(currentTime);
+            console.log(t);
+            $('.song_time>span').first().text(t);
             $('.m_progress').css('width',load+'px');
             $('.m_progress_bar>span').css('left',(load-5)+'px');
             // console.log(load);
@@ -74,7 +84,42 @@ $(function(){
                 clearInterval(timer);
                 timer = null;
             }
-        },50);
+        },1000);
+    }
+    //时间转换函数
+    function changetime(val){
+        var val = parseInt(val);
+        var str = '',a='',b='';
+        var m = parseInt((val/60));
+        var s = val % 60; 
+        if(m<10){
+            a = '0'+m;
+        }else{
+            a = m;
+        }
+        if(s<10){
+            b = '0'+s;
+        }else{
+            b = s;
+        }
+        str = a + ':' + b;
+        return str;
+        // console.log(val);
+        // var m = val / 60;
+        // var s = val % 60;
+        // var a,b;
+        // if(m<10){
+        //     a = '0'+m;
+        // }else{
+        //     a = m;
+        // }
+        // if(s<10){
+        //     b = '0'+s;
+        // }else{
+        //     b = m;
+        // }
+        // console.log(a+':'+b);
+        
     }
     function clearProgressbar(){
         $('.m_progress').css('width','0px');

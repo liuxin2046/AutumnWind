@@ -3,10 +3,17 @@ const pool = require('../pool.js');
 var router = express.Router();
     //注册路由
     router.post('/register',(req,res)=>{
-    var object = req.body;
-        console.log(object);
-        object.uid = null;
-        pool.query(`insert into aw_user_list value set ?`);
+    var {uname,upwd,account} = req.body;
+        var index = Math.floor(Math.random()*7);
+        var avatar = './images/avatar/d'+(index+1)+'.jpg';
+        console.log(avatar);
+        var sql =  `insert into aw_user_list values(null,?,?,?,?,null,?,?,null)`;
+        pool.query(sql,[uname,upwd,account,account,uname,avatar],(err,result)=>{
+            if(err) throw err;
+            if(result.affectedRows > 0){
+                res.send({code:1,msg:'success'});
+            }
+        });
     });
     //登录路由
     router.post('/login',(req,res)=>{
@@ -50,12 +57,12 @@ var router = express.Router();
     //检查用户名是否存在
     router.get('/checkName',(req,res)=>{
         var uname = req.query.uname;
-        pool.query(`select * from aw_user where uname = ?`,[uname],(err,result)=>{
+        pool.query(`select * from aw_user_list where uname = ?`,[uname],(err,result)=>{
             if(err) throw err;
             if(result.length > 0){
-                res.send('1');
+                res.send({code:1,msg:'false'});
             }else{
-                res.send('0');
+                res.send({code:0,msg:'true'});
             }
         })
     });
@@ -96,9 +103,24 @@ var router = express.Router();
     //导出用户歌单
     router.get('/songSheet',(req,res)=>{
         var uid = req.query.uid;
-        var sql = `select song_name,sname,album,stime from aw_user_collect,aw_music_list,aw_singer_list where (aw_user_collect.lid=aw_music_list.lid and aw_music_list.sno = aw_singer_list.sid) and uid = ?`;
+        var sql = `select aw_music_list.lid as lid,song_name,sname,album,stime from aw_user_collect,aw_music_list,aw_singer_list where (aw_user_collect.lid=aw_music_list.lid and aw_music_list.sno = aw_singer_list.sid) and uid = ?`;
         pool.query(sql,[uid],(err,result)=>{
             res.send(result);
+        })
+    })
+    //删除用户歌曲
+    router.get('/deleteSong',(req,res)=>{
+        var {uid,lid} = req.query;
+        console.log('uid: '+uid+' lid: '+lid);
+        var sql = `delete from aw_user_collect where uid = ? and lid = ?`;
+        pool.query(sql,[uid,lid],(err,result)=>{
+            if(err) throw err;
+            if(result.affectedRows > 0){
+                res.send({code:1,msg:'success'});
+            }
+            else{
+                res.send({code:0,msg:'failed'});
+            }
         })
     })
     module.exports = router;

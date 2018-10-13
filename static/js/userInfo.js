@@ -18,16 +18,42 @@ new Vue({
         }
     },
     methods:{
+        play:function(id){
+            //跳转页面到song_play.html
+            location.href=`http://localhost:8080/song_play.html?lid=${id}`;
+        },
+        songDel:async function(lid){
+            var res = await axios.get(`http://localhost:8080/user/deleteSong`,{
+                params:{
+                    uid:getCookie('uid'),
+                    lid:lid
+                }
+            });
+            if(res.data.code == 1){
+                this.getSongSheel();
+                // location.href = 'http://localhost:8080/userInfo.html';
+            }
 
-    },
-    created() {
-        (async function(self){
+        },
+        getSongSheel:async function(){
             var res = await axios.get(`http://localhost:8080/user/songSheet`,{
                 params:{
                     uid:getCookie('uid')
                 }
             })
-            self.res = res.data;
-        })(this)
+            this.res = res.data;
+        }
+    },
+    created() {
+        this.getSongSheel();
+        // (async function(self){
+        //     var res = await axios.get(`http://localhost:8080/user/songSheet`,{
+        //         params:{
+        //             uid:getCookie('uid')
+        //         }
+        //     })
+        //     self.res = res.data;
+        //     // console.log(res.data);
+        // })(this)
     }
 })

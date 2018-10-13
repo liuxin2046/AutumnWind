@@ -102,3 +102,86 @@
     padding-top: 8px;
     font-size: 15px;
 }
+/* 加入信息 */
+.login>img{
+    width: 60px;
+    height:60px;
+    position: absolute;
+    border-radius: 50%;
+    top: 15px;
+    left: 10px;
+    border:1px solid #d8d8d8;
+    display: none;
+    z-index: 999;
+}
+.link_user_info:hover+.user_info{ /*?出错了 解决方法 它们是兄弟关系*/
+    /* display: block; */
+    height: 300px;
+}
+.user_info:hover{
+    height: 300px;
+}
+.online{
+    position: relative;
+}
+.user_info{
+    width: 280px;
+    /* height: 300px; */
+    position: absolute;
+    top: 90px;
+    left: 25px;
+    height: 0;
+    overflow: hidden;
+    z-index: 999;
+    background-color: white;
+    transition: all 0.5s linear;
+}
+.user_info .user_data{
+    width: 90%;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 10px;
+}
+.user_info .user_data img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.user_info .user_data .user_data_cont{
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+.user_info .user_toobar{
+    width: 90%;
+    margin: 0 auto;
+}
+.user_toobar_item{
+    height: 50px;
+    position: relative;
+    padding-top: 10px;
+}
+.user_toobar .user_toobar_item>p:first-child{
+    font-size: 15px;
+    
+}
+.user_toobar .user_toobar_item>p:first-child+p{
+    
+    font-size: 13px;
+    color: #9A9A9A;
+}
+.user_toobar .user_toobar_item>p:first-child~a{
+    position: absolute;
+    width: 60px;
+    height: 35px;
+    background-color: #31C27C;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    padding: 8px;
+    top: 13px;
+    right: 10px;
+}

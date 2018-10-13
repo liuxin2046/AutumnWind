@@ -53,6 +53,10 @@
     width: 650px;
     margin: 22px auto;
 }
+.recomand_detail>a{
+    text-decoration: none;
+    color: black;
+}
 .newSongs .country,.newDisk .country,.mv .country{
     width: 650px;
     text-align: center;
@@ -126,6 +130,7 @@
     border-radius: 50%;
     background-color: #E1E1E1;
 }
+
 .num_active{
     background-color: #AFAFAF !important;
 }
