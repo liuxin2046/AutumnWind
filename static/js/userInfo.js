@@ -31,6 +31,8 @@ new Vue({
             });
             if(res.data.code == 1){
                 this.getSongSheel();
+                //用户删除数据成功
+                mizhu.toast('删除成功')
                 // location.href = 'http://localhost:8080/userInfo.html';
             }
 

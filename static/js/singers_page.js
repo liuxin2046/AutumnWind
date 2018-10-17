@@ -39,8 +39,9 @@ new Vue({
                 }
             })
                 console.log(cinfo.data.msg);
+                mizhu.toast('添加成功');
             }else{
-                console.log('不能重复添加');
+                mizhu.toast('不能重复添加');
             }
         } 
     },
