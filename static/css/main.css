@@ -146,6 +146,13 @@
     overflow: hidden;
     margin: 0 auto;
 }
+.newDisk img,.mv img,.w_recommand img,.newSongs img,.imgs img{
+    opacity: 1;
+    transition: all 1s;
+}
+.newDisk img:hover,.mv img:hover,.newSongs img:hover,.w_recommand img:hover,.imgs img:hover{
+    opacity: 0.6;
+}
 .mv_img{
     width: 1200px;
     height: 660px;

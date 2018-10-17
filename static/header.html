@@ -10,7 +10,16 @@
         </ul>
         <div class="aw_top_subnav">
             <ul class="right">
-                <li class="search"><input type="text" class="search_bar" v-model='keyword' @keyup.13='search()'></li>
+                <li class="search"><input type="text" class="search_bar" v-model='keyword' @keyup.13='search()'>
+                <div class="vagueSearch">
+                    <ul>
+                        <li v-for ='(item,i) of matchSinger'><a :href="'http://localhost:8080/singers_page.html?singerName='+item.sname"><span>{{i+1}}</span>{{item.sname}}</a></li>
+                        <li><div class="clearhistory">
+                        <span>清空历史记录</span><a href="#" class="trash"></a>
+                        </div></li>
+                    </ul>
+                </div>
+                </li>
                 <li class="login online">
                     <a href="javascript:login()" class="login_btn">登录</a>
                     <img :src="list[0].avatar" alt="avatar" class="link_user_info" v-bind:style="styleObject">

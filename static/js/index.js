@@ -6,8 +6,8 @@ function close(){
 var modal = document.getElementsByClassName('modal')[0];
     modal.style.display = 'none';    
 }
+
 $(function(){
-    
     let url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg';
     $.ajax({
         url: url,

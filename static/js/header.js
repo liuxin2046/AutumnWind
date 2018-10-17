@@ -1,14 +1,27 @@
 $(function(){
     $(`<link rel='stylesheet' href='./css/header.css'>`).appendTo('head');
+    // $('.search_bar').focus(function(){
+    //     console.log('ok');
+    //     $('.vagueSearch').css({'display':'block'});
+    // })
+    
+        //     search_bar.onfocus = function(){
+        //     searchlist.style.display = 'block';
+        // }
     $.ajax({
         type:'get',
         url:'header.html',
         success:function(res){
             $(res).replaceAll($('#header'));
+            //这才是完整的header
+            // window.onclick = function(e){
+            //     console.log(e.target);
+            // }
             var vm = new Vue({
                 el:'div.aw_header',
                 data:{
                     keyword:'',
+                    matchSinger:[],
                     statu:false,
                     list:[{avatar:''}],
                     styleObject:{
@@ -43,10 +56,30 @@ $(function(){
                 },
                 watch:{
                     keyword(){
+                        var searchlist = document.getElementsByClassName('vagueSearch')[0];
+                        searchlist.style.display = 'block';
+                        //每检测到一个单词就进行一次ajax请求
+                        (async function(self){
+                            var res = await axios.get(`http://localhost:8080/songs/getSinger`,{
+                            params:{
+                                keyword:self.keyword
+                            }
+                        })
+                        console.log(res.data.msg);
+                        //把匹配到的歌手添加到列表中
+                        self.matchSinger = res.data.msg;
+
+
+                        })(this)
                         console.log(this.keyword);
                     }
                 }
             })
         }
     })
+    //搜索栏失去焦点则被隐藏
+    // $('.search_bar').blur(function(){
+    //     console.log('ok');
+    //     $('').css('display','none');
+    // })
 })

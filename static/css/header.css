@@ -52,14 +52,14 @@
     height: 90px;
     
 }
-.aw_top_subnav .right li{
+.aw_top_subnav .right>li{
     float: left;
     height: 90px;
 }
-.aw_top_subnav .right li:first-child{
+.aw_top_subnav .right>li:first-child{
     padding-top: 30px;
 }
-.right li{
+.right>li{
     margin-left: 5px;
 }
 .right .search_bar{
@@ -184,4 +184,54 @@
     padding: 8px;
     top: 13px;
     right: 10px;
+}
+/* 搜索栏模糊查询 */
+.search{
+    position: relative;
+}
+.vagueSearch{
+    width: 220px;
+    padding: 5px;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #C9C9C9;
+    z-index: 999;
+    left: 0px;
+    top: 70px;
+    display: none;
+}
+.vagueSearch>ul{
+    list-style: none;
+}
+.vagueSearch>ul>li>a{
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    /* background-color: lightgreen; */
+}
+.vagueSearch>ul>li>a:hover{
+    background-color:#31C27C;
+    color: white;
+}
+.vagueSearch>ul>li>a>span{
+    padding-right: 15px;
+    color: #FF90CE;
+}
+.clearhistory{
+    width: 100%;
+    height: 35px;
+    padding-left: 10px;
+    line-height: 35px;
+    font-size: 15px;
+    color: #999;
+}
+
+.clearhistory .trash{
+    float: right;
+    width: 20px;
+    /* margin-top: 5px; */
+    height: 35px;
+    
+    /* background-color: lightblue; */
+    background:white url(../images/icon_sprite.png) -97px 10px no-repeat;
 }
