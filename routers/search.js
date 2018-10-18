@@ -18,14 +18,24 @@ router.get('/getSong',(req,res)=>{
 router.get('/getSinger',(req,res)=>{
     var keyword = req.query.keyword;
     console.log(keyword);
-    var patt = /^\w+$/;
-    if(patt.test(keyword)){
+    // var patt = /^\w+$/;
+    // console.log(patt.test(keyword));
+    if(keyword==''){
+        res.send({code:0,msg:[]});
+    }
+    else{
+        var patt = /^\s+$/;
+        console.log(patt.test(keyword));
+        if(!patt.test(keyword)){
         var sql = `select sname from aw_singer_list where sname like '%${keyword}%'`;
         pool.query(sql,[],(err,result)=>{
             if(err) throw err
             else
             res.send({code:1,msg:result});
         })
+        }else{
+        res.send({code:0,msg:[]})
+        }
     }
 })
 module.exports = router;
